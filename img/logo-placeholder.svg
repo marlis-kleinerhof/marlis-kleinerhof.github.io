@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" width="220" height="70">
+  <rect width="220" height="70" rx="10" fill="#fff8ee" stroke="#c07b2a" stroke-width="2" stroke-dasharray="7,4"/>
+  <text x="110" y="26" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#9a7a50" text-anchor="middle">[ Euer Logo hier ]</text>
+  <text x="110" y="46" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#c07b2a" text-anchor="middle" font-weight="700">logo.png</text>
+  <text x="110" y="62" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#b8a07a" text-anchor="middle">Datei ersetzen → fertig</text>
+</svg>

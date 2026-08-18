@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 100">
+  <!-- Celadon-Ei: hellblau, kaum Flecken -->
+  <path d="M40 5 C20 5, 8 30, 8 55 C8 78, 22 95, 40 95 C58 95, 72 78, 72 55 C72 30, 60 5, 40 5 Z" fill="#9ecfce"/>
+  <!-- Glanzlicht -->
+  <ellipse cx="28" cy="30" rx="8" ry="14" fill="white" opacity="0.25" transform="rotate(-10 28 30)"/>
+  <!-- ganz zarte Tupfen -->
+  <ellipse cx="52" cy="45" rx="2" ry="1.5" fill="#4a9090" opacity="0.35" transform="rotate(15 52 45)"/>
+  <ellipse cx="30" cy="65" rx="1.5" ry="1.2" fill="#4a9090" opacity="0.3" transform="rotate(-10 30 65)"/>
+  <ellipse cx="48" cy="70" rx="2" ry="1.5" fill="#4a9090" opacity="0.28" transform="rotate(20 48 70)"/>
+  <ellipse cx="20" cy="52" rx="1.5" ry="1" fill="#4a9090" opacity="0.3" transform="rotate(30 20 52)"/>
+</svg>
