@@ -253,12 +253,37 @@ nav a:hover {
   border: 2px solid #e8c87a;
   border-radius: 1rem;
   text-align: center;
+  cursor: default;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.stempel-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
 }
 
 .stempel-box h3 {
   font-size: 1.3rem;
   color: #5a3a10;
   margin-bottom: 0.6rem;
+}
+
+.stempel-preview {
+  width: min(100%, 320px);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  border: 1px solid #e1c68f;
+  margin: 0.2rem auto 0.9rem;
+  display: block;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  filter: contrast(1.04) saturate(0.94) sepia(0.1) brightness(0.99);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.stempel-box:hover .stempel-preview {
+  transform: scale(1.02);
+  filter: contrast(1.06) saturate(0.98) sepia(0.08) brightness(1.01);
 }
 
 .stempel-box p {
@@ -310,6 +335,12 @@ nav a:hover {
   padding: 0;
   text-align: left;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.rassen-card:focus-visible {
+  outline: 3px solid #c07b2a;
+  outline-offset: 3px;
 }
 
 .rassen-img-wrap {
@@ -505,6 +536,155 @@ nav a:hover {
   align-self: flex-start;
 }
 
+/* ===== MODAL GALERIE ===== */
+body.no-scroll {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1200;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 16, 7, 0.7);
+}
+
+.modal-dialog {
+  position: relative;
+  width: min(940px, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
+  margin: 1rem auto;
+  background: #fffaf2;
+  border: 1px solid #d9c29c;
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow: auto;
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.3);
+}
+
+.modal-dialog h3 {
+  color: #5a3a10;
+  margin: 0 2.2rem 0.8rem 0.2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid #d8bf94;
+  border-radius: 999px;
+  background: #fff;
+  color: #5a3a10;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #f4e4c8;
+}
+
+.modal-stage {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #2c1d0f;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.modal-media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #2c1d0f;
+}
+
+.modal-caption {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  background: #f9f4ec;
+  border-radius: 0.6rem;
+  border: 1px solid #e8d8c0;
+  min-height: 2rem;
+}
+
+.modal-caption-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #5a3a10;
+  margin-bottom: 0.3rem;
+}
+
+.modal-caption-text {
+  font-size: 0.95rem;
+  color: #7a5c2e;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.modal-thumbs {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.6rem;
+}
+
+.modal-thumb {
+  border: 2px solid #e6d3b4;
+  border-radius: 0.6rem;
+  background: #f6ead5;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-thumb.active {
+  border-color: #c07b2a;
+}
+
+.modal-thumb.is-video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(24, 14, 6, 0.65), rgba(24, 14, 6, 0.15));
+}
+
+.thumb-video-badge {
+  position: absolute;
+  bottom: 0.35rem;
+  right: 0.35rem;
+  z-index: 1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(25, 16, 7, 0.82);
+  padding: 0.08rem 0.4rem;
+  border-radius: 0.4rem;
+}
+
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
@@ -533,5 +713,19 @@ footer {
 
   .section {
     padding: 3rem 1.2rem;
+  }
+
+  .modal-dialog {
+    width: calc(100% - 1rem);
+    margin: 0.5rem auto;
+    padding: 0.7rem;
+  }
+
+  .modal-dialog h3 {
+    font-size: 1rem;
+  }
+
+  .modal-thumbs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

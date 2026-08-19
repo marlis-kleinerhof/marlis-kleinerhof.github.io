@@ -45,7 +45,31 @@ marlis/
 
 ## Lokal testen
 
-Einfach `index.html` im Browser oeffnen.
+Nicht direkt per `file://` oeffnen, da Browser lokale `fetch()`-Aufrufe blocken.
+
+## Medienbibliothek pflegen
+
+Die Inhalte bitte in `media-library.json` bearbeiten.
+
+Danach die Laufzeit-Datei mit einem Befehl neu erzeugen:
+
+```bat
+sync-media.cmd
+```
+
+Das schreibt `media-library.js` neu aus der JSON-Datei.
+
+Am einfachsten mit einem kleinen lokalen Webserver starten:
+
+```bash
+python -m http.server 5500
+```
+
+Dann im Browser aufrufen:
+
+```text
+http://localhost:5500
+```
 
 ## GitHub Setup (nach Repo-Erstellung)
 
