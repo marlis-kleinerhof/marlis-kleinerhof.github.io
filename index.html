@@ -14,7 +14,7 @@
       <img src="img/logo.jpg" alt="MarLis Logo" class="logo-img"/>
     </div>
     <nav>
-      <a href="#ueber-uns">Zu uns</a>
+      <a href="#ueber-uns">Über uns</a>
       <a href="#wachteln">Wachteln</a>
       <a href="#produkte">Produkte</a>
       <a href="#fuehrungen">Führungen</a>
@@ -31,10 +31,10 @@
     </div>
   </section>
 
-  <!-- ZU UNS -->
+  <!-- ÜBER UNS -->
   <section id="ueber-uns" class="section light">
     <div class="container">
-      <h2>Zu uns</h2>
+      <h2>Über uns</h2>
       <p>
         Wir sind <strong>Martin und Lisa</strong> und betreiben unseren kleinen Hof <strong>MarLis</strong> mit viel Herz
         in Deutschkreutz, Burgenland. Unsere Wachteln leben in grosszügigen, ruhigen Gehegen, bekommen hochwertiges Futter
@@ -45,6 +45,7 @@
         Großräumige, saubere und stressfreie Gehege · Hochwertiges Futter · Frische Luft & natürliche Abläufe
       </div>
       <p>
+        <br>
         Bei uns steht das <strong>Tierwohl an erster Stelle</strong> – nicht der Profit.
       </p>
     </div>
@@ -55,7 +56,7 @@
     <div class="container">
       <h2>Unsere Wachtelarten</h2>
       <div class="card-grid rassen-grid">
-        <div class="card rassen-card">
+        <div class="card rassen-card" data-rasse="wachtel-wg" role="button" tabindex="0" aria-label="Galerie Wachtel WG öffnen">
           <div class="rassen-img-wrap">
             <img src="img/wachtel-wg.jpg" alt="Wachtel WG – Japanische Legewachteln" loading="lazy"/>
           </div>
@@ -65,7 +66,7 @@
             <span class="rassen-badge">Wachtel WG</span>
           </div>
         </div>
-        <div class="card rassen-card">
+        <div class="card rassen-card" data-rasse="celadonis" role="button" tabindex="0" aria-label="Galerie Celadonis öffnen">
           <div class="rassen-img-wrap">
             <img src="img/celadonis.jpg" alt="Celadonis – Celadon Wachteln" loading="lazy"/>
           </div>
@@ -75,7 +76,7 @@
             <span class="rassen-badge">Celadonis</span>
           </div>
         </div>
-        <div class="card rassen-card">
+        <div class="card rassen-card" data-rasse="zwergenstube" role="button" tabindex="0" aria-label="Galerie Zwergenstube öffnen">
           <div class="rassen-img-wrap">
             <img src="img/zwergenstube.jpg" alt="Zwergenstube – Chinesische Zwergwachteln" loading="lazy"/>
           </div>
@@ -85,7 +86,7 @@
             <span class="rassen-badge">Zwergenstube</span>
           </div>
         </div>
-        <div class="card rassen-card">
+        <div class="card rassen-card" data-rasse="bobwhite" role="button" tabindex="0" aria-label="Galerie Bobwhite öffnen">
           <div class="rassen-img-wrap">
             <img src="img/bobwhite.jpeg" alt="Virginia Wachteln – Bobwhite" loading="lazy"/>
           </div>
@@ -118,7 +119,7 @@
           <div class="card-icon"><img src="img/egg-hatch.svg" alt="Schlupfei" class="egg-icon"/></div>
           <h3>Bruteier</h3>
           <p>Für Hobbyzüchter, die selbst aufziehen möchten.</p>
-          <div class="price">Legewachtel MIX – <strong>0,50 €</strong> / Stück</div>
+          <!-- <div class="price">Legewachtel MIX – <strong>0,50 €</strong> / Stück</div> -->
           <div class="price">Legewachtel Celadon – <strong>0,90 €</strong> / Stück</div>
           <div class="price">Zwergwachtel – <strong>1,00 €</strong> / Stück</div>
           <p class="price-note">Bald verfügbar: Virginiawachtel</p>
@@ -141,8 +142,9 @@
       <!-- STEMPELPASS -->
       <div class="stempel-box">
         <h3>🏅 Stempelpass für Stammkunden</h3>
+        <img src="img/galerie/stempelPass.jpeg" alt="Stempelpass für Stammkunden" class="stempel-preview" loading="lazy"/>
         <p>
-          (Sprech uns gerne darauf an)<br>
+          (Sprecht uns gerne darauf an)<br>
           Bei jeder gekauften 12er-Packung Speiseeier gibt es einen Stempel.<br/>
           <strong>Die 12. Packung ist gratis!</strong><br/>
           Stammkunden erhalten außerdem ein kleines Starterpaket.
@@ -215,6 +217,19 @@
     </div>
   </section>
 
+  <!-- RASSEN MODAL GALERIE -->
+  <div class="modal" id="rassenModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" id="modalCloseBtn" aria-label="Galerie schließen">×</button>
+      <h3 id="modalTitle">Galerie</h3>
+      <div class="modal-stage" id="modalStage"></div>
+      <div class="modal-caption" id="modalCaption"></div>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+    </div>
+  </div>
+
+  <script src="media-library.js"></script>
   <script>
     document.getElementById('anfrageForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -222,6 +237,222 @@
       var msg  = document.getElementById('anfrage-nachricht').value.trim();
       var body = 'Hallo MarLis-Team,' + '%0D%0A%0D%0A' + encodeURIComponent(msg) + '%0D%0A%0D%0AMit freundlichen Grüßen,%0D%0A' + encodeURIComponent(name);
       window.location.href = 'mailto:marlis-kleinerhof@gmx.at?subject=Anfrage%20%E2%80%93%20MarLis%20Wachtelhof&body=' + body;
+    });
+
+    var modal = document.getElementById('rassenModal');
+    var modalTitle = document.getElementById('modalTitle');
+    var modalStage = document.getElementById('modalStage');
+    var modalCaption = document.getElementById('modalCaption');
+    var modalThumbs = document.getElementById('modalThumbs');
+    var modalCloseBtn = document.getElementById('modalCloseBtn');
+    var activeItems = [];
+    var activeIndex = 0;
+    var mediaByCard = {};
+    var titleByCard = {};
+    var isLibraryLoaded = false;
+
+    function normalizeItem(item) {
+      return {
+        type: item.type === 'video' ? 'video' : 'image',
+        src: item.src,
+        poster: item.poster || '',
+        alt: item.name || '',
+        name: item.name || '',
+        description: item.description || ''
+      };
+    }
+
+    function initMediaLibrary(library) {
+      mediaByCard = {};
+      titleByCard = {};
+
+      (library.cards || []).forEach(function(card) {
+        titleByCard[card.id] = card.title || 'Galerie';
+        mediaByCard[card.id] = [];
+      });
+
+      (library.items || []).forEach(function(item) {
+        (item.links || []).forEach(function(cardId) {
+          if (!mediaByCard[cardId]) {
+            mediaByCard[cardId] = [];
+          }
+          mediaByCard[cardId].push(normalizeItem(item));
+        });
+      });
+
+      isLibraryLoaded = true;
+    }
+
+    function loadMediaLibrary() {
+      if (window.MEDIA_LIBRARY) {
+        initMediaLibrary(window.MEDIA_LIBRARY);
+        return;
+      }
+
+      fetch('media-library.json')
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('media-library.json konnte nicht geladen werden');
+          }
+          return response.json();
+        })
+        .then(function(data) {
+          initMediaLibrary(data);
+        })
+        .catch(function(error) {
+          console.error(error);
+          alert('Galerie-Daten konnten nicht geladen werden. Bitte Seite uber http://localhost starten.');
+        });
+    }
+
+    loadMediaLibrary();
+
+    function renderStage(index) {
+      var item = activeItems[index];
+      if (!item) {
+        return;
+      }
+
+      modalStage.innerHTML = '';
+      var media;
+      if (item.type === 'video') {
+        media = document.createElement('video');
+        media.src = item.src;
+        media.controls = true;
+        media.preload = 'metadata';
+        if (item.poster) {
+          media.poster = item.poster;
+        }
+      } else {
+        media = document.createElement('img');
+        media.src = item.src;
+        media.alt = item.alt || '';
+      }
+      media.className = 'modal-media';
+      modalStage.appendChild(media);
+
+      modalCaption.innerHTML = '';
+      if (item.name) {
+        var captionTitle = document.createElement('div');
+        captionTitle.className = 'modal-caption-title';
+        captionTitle.textContent = item.name;
+        modalCaption.appendChild(captionTitle);
+      }
+      if (item.description) {
+        var captionText = document.createElement('p');
+        captionText.className = 'modal-caption-text';
+        captionText.textContent = item.description;
+        modalCaption.appendChild(captionText);
+      }
+
+      var thumbButtons = modalThumbs.querySelectorAll('button');
+      thumbButtons.forEach(function(btn, i) {
+        btn.classList.toggle('active', i === index);
+      });
+      activeIndex = index;
+    }
+
+    function buildThumbs(items) {
+      modalThumbs.innerHTML = '';
+      items.forEach(function(item, index) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'modal-thumb';
+        btn.setAttribute('aria-label', (item.name || 'Medium') + ' anzeigen');
+
+        if (item.type === 'video') {
+          btn.classList.add('is-video');
+          if (item.poster) {
+            btn.style.backgroundImage = 'url(' + item.poster + ')';
+          }
+          var badge = document.createElement('span');
+          badge.className = 'thumb-video-badge';
+          badge.textContent = 'Video';
+          btn.appendChild(badge);
+        } else {
+          var img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.alt || '';
+          btn.appendChild(img);
+        }
+
+        btn.addEventListener('click', function() {
+          renderStage(index);
+        });
+        modalThumbs.appendChild(btn);
+      });
+    }
+
+    function openRassenModal(rasseKey) {
+      if (!isLibraryLoaded) {
+        return;
+      }
+
+      var items = mediaByCard[rasseKey] || [];
+      if (!items.length) {
+        return;
+      }
+
+      activeItems = items;
+      modalTitle.textContent = (titleByCard[rasseKey] || 'Galerie') + ' – Galerie';
+      buildThumbs(activeItems);
+      renderStage(0);
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeRassenModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+      modalStage.innerHTML = '';
+      modalCaption.innerHTML = '';
+      modalThumbs.innerHTML = '';
+      activeItems = [];
+      activeIndex = 0;
+    }
+
+    function bindModalTrigger(element) {
+      element.addEventListener('click', function() {
+        openRassenModal(element.dataset.rasse);
+      });
+
+      element.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openRassenModal(element.dataset.rasse);
+        }
+      });
+    }
+
+    document.querySelectorAll('.rassen-card').forEach(function(element) {
+      bindModalTrigger(element);
+    });
+
+    modal.addEventListener('click', function(e) {
+      if (e.target.matches('[data-close-modal="true"]')) {
+        closeRassenModal();
+      }
+    });
+
+    modalCloseBtn.addEventListener('click', closeRassenModal);
+
+    document.addEventListener('keydown', function(e) {
+      if (!modal.classList.contains('is-open')) {
+        return;
+      }
+
+      if (e.key === 'Escape') {
+        closeRassenModal();
+      }
+      if (e.key === 'ArrowRight' && activeItems.length) {
+        renderStage((activeIndex + 1) % activeItems.length);
+      }
+      if (e.key === 'ArrowLeft' && activeItems.length) {
+        renderStage((activeIndex - 1 + activeItems.length) % activeItems.length);
+      }
     });
   </script>
 
