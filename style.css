@@ -192,6 +192,14 @@ nav a:hover {
   line-height: 1.8;
 }
 
+.highlight-box ul {
+  margin: 0.5rem 0 0 1.2rem;
+}
+
+.highlight-box li {
+  margin: 0.2rem 0;
+}
+
 /* ===== CARD GRID ===== */
 .card-grid {
   display: grid;
