@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap for GitHub Pages
+Sitemap: https://marlis-kleinerhof.github.io/sitemap.xml

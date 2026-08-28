@@ -5,6 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MarLis – Wachtelhof aus Deutschkreutz</title>
   <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="MarLis – Frische Wachteleier direkt vom Hof in Deutschkreutz. Liebevolle Haltung, regionale Eier, Hofführungen und Bruteier." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://marlis-kleinerhof.github.io/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://marlis-kleinerhof.github.io/sitemap.xml" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="MarLis – Wachtelhof aus Deutschkreutz" />
+  <meta property="og:description" content="Frische Wachteleier direkt vom Hof. Liebevolle Haltung & regionale Produkte." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://marlis-kleinerhof.github.io/" />
+  <meta property="og:image" content="https://marlis-kleinerhof.github.io/img/logo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- JSON-LD (generated client-side to avoid hardcoding domain) -->
+  <script>
+    (function(){
+      try {
+        var org = {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "MarLis",
+          "url": location.origin,
+          "sameAs": ["https://instagram.com/marlis_kleinerhof"],
+          "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "email": "marlis-kleinerhof@gmx.at"}]
+        };
+        var s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.text = JSON.stringify(org);
+        document.head.appendChild(s);
+      } catch(e){}
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "Wachteleier (12 Stück)",
+        "description": "Speiseeier – Frisch vom Hof, täglich gesammelt.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "3.50",
+          "availability": "https://schema.org/InStock",
+          "url": "https://marlis-kleinerhof.github.io/#produkte"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "Zwergwachteln (Pärchen)",
+        "description": "Seltene Zwergwachteln – Rarität, limitierte Anzahl.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "25.00",
+          "availability": "https://schema.org/LimitedAvailability",
+          "url": "https://marlis-kleinerhof.github.io/#produkte"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "Virginia Wachteln (Pärchen)",
+        "description": "Virginia Wachteln – liebevoll gehalten.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "40.00",
+          "availability": "https://schema.org/InStock",
+          "url": "https://marlis-kleinerhof.github.io/#produkte"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -146,6 +221,8 @@
           <p class="price-note">Andere Wachteln gerne auf Anfrage.</p>
           <a href="mailto:marlis-kleinerhof@gmx.at?subject=Wachteln%20kaufen&body=Hallo%20MarLis-Team%2C%0D%0A%0D%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Kauf%20von%20Wachteln.%0D%0A%0D%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn-anfrage">Anfragen</a>
         </div>
+
+        <!-- Zwergwachteln product removed from page; included in JSON-LD metadata instead -->
 
       </div>
 
