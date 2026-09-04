@@ -4,7 +4,8 @@ window.MEDIA_LIBRARY = {
     { "id": "celadonis", "title": "Celadonis" },
     { "id": "zwergenstube", "title": "Zwergenstube" },
     { "id": "bobwhite", "title": "Bobwhite`s" },
-    { "id": "stempelpass", "title": "Stempelpass" }
+    { "id": "stempelpass", "title": "Stempelpass" },
+    { "id": "montezuma", "title": "Montezuma" }
   ],
   "items": [
     {
@@ -282,6 +283,30 @@ window.MEDIA_LIBRARY = {
       "links": ["bobwhite"]
     },
     {
+      "id": "auto-foto-50",
+      "type": "image",
+      "src": "img/galerie/foto50.jpg",
+      "name": "Bruteier bei Schieren",
+      "description": "Frische geborene Küken.",
+      "links": ["bobwhite"]
+    },
+    {
+      "id": "auto-foto-51",
+      "type": "image",
+      "src": "img/galerie/foto51.jpg",
+      "name": "Montezuma Küken zum ersten Mal im Zuhause",
+      "description": "Willkommen im neuen Zuhause.",
+      "links": ["montezuma"]
+    },
+    {
+      "id": "auto-foto-52",
+      "type": "image",
+      "src": "img/galerie/foto52.jpg",
+      "name": "Montezuma Küken zum ersten Mal im Zuhause",
+      "description": "Montezuma Küken im neuen Zuhause.",
+      "links": ["montezuma"]
+    },
+    {
       "id": "wg-cover",
       "type": "image",
       "src": "img/wachtel-wg.jpg",
@@ -312,6 +337,23 @@ window.MEDIA_LIBRARY = {
       "name": "Virginia Wachteln",
       "description": "Bobwhite in naturlicher, stressfreier Umgebung.",
       "links": ["bobwhite"]
+    },
+    {
+      "id": "montezuma-video",
+      "type": "video",
+      "src": "img/galerie/montis-video.mp4",
+      "poster": "img/galerie/foto51.jpg",
+      "name": "Montezuma in neuem Zuhause",
+      "description": "Erste Eindrücke der Montezuma Wachteln.",
+      "links": ["montezuma"]
+    },
+    {
+      "id": "montezuma-cover",
+      "type": "image",
+      "src": "img/montis.jpg",
+      "name": "Montezuma Wachteln",
+      "description": "Unsere neuen Montezuma Pärchen.",
+      "links": ["montezuma"]
     }
   ]
 };
